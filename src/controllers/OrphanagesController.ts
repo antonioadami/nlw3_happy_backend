@@ -30,8 +30,6 @@ export default {
     },
 
     async create(req: Request, res: Response) {
-        console.log('opa');
-        
         const orphanagesRepository = getRepository(Orphanage);
 
         const requestImages = req.files as Express.Multer.File[];
@@ -77,6 +75,9 @@ export default {
         await schema.validate(data, {
             abortEarly: false
         })
+        
+        data.open_on_weekends = JSON.parse(data.open_on_weekends);
+
     
         const orphanage = orphanagesRepository.create(data);
     
