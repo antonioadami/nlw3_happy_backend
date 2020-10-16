@@ -46,7 +46,7 @@ export default {
             about,
             instructions,
             opening_hours,
-            open_on_weekends
+            open_on_weekends,
         } = req.body;
 
         const data = {
@@ -56,7 +56,8 @@ export default {
             about,
             instructions,
             opening_hours,
-            open_on_weekends
+            open_on_weekends,
+            images
         };
 
         const schema = Yup.object().shape({
